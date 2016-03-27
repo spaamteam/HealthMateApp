@@ -198,6 +198,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kH9-aS-6kR">
                                 <rect key="frame" x="277" y="75" width="30" height="30"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addPatient:" destination="rHT-oA-x6h" eventType="touchUpInside" id="nQV-PU-h9Y"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqh-sj-XYz">
                                 <rect key="frame" x="109" y="425" width="182" height="30"/>
@@ -452,7 +455,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Of2-K8-3OM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Dk-ee-i7u" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Main" automaticallyAdjustsScrollViewInsets="NO" id="5Dk-ee-i7u" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OPh-WU-R9q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

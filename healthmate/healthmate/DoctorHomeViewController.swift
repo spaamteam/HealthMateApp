@@ -20,17 +20,17 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
-        let url = NSURL(string: "http://healthmate2016.herokuapp.com/")
-        let request = NSURLRequest(
-            URL: url!,
-            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
-            timeoutInterval: 10)
-        
-        let session = NSURLSession(
-            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-            delegate: nil,
-            delegateQueue: NSOperationQueue.mainQueue()
-        )
+//        let url = NSURL(string: "http://healthmate2016.herokuapp.com/doctor_login")
+//        let request = NSURLRequest(
+//            URL: url!,
+//            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
+//            timeoutInterval: 10)
+//        
+//        let session = NSURLSession(
+//            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
+//            delegate: nil,
+//            delegateQueue: NSOperationQueue.mainQueue()
+//        )
         
 //        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
 //            completionHandler: { (dataOrNil, response, error) in
@@ -45,6 +45,8 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 //                }
 //        })
 //        task.resume()
+        
+        //RestClient.sharedInstance.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
