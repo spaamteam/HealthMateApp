@@ -35,7 +35,7 @@ class PatientDetailsViewController: UIViewController {
             }
         }
         nameLabel.text = patient.valueForKeyPath("name") as? String
-        //criticalityLabel.text = patient.valueForKeyPath("severity") as? String
+        criticalityLabel.text = patient.valueForKeyPath("riskflag") as? String
         lastVisitLabel.text = patient.valueForKeyPath("lastvisitdate") as? String
         ageLabel.text = patient.valueForKeyPath("age") as? String
         //historyLabel.text = patient.valueForKeyPath("history") as? String

@@ -26,7 +26,7 @@
                                 <rect key="frame" x="40" y="287" width="90" height="30"/>
                                 <state key="normal" title="Patient Login"/>
                                 <connections>
-                                    <segue destination="yVs-gN-PrI" kind="push" id="xYC-1X-rox"/>
+                                    <action selector="onPatientLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gMR-Ij-QG5"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HEALTH MATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ung-x9-bcA">
@@ -50,19 +50,25 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZOe-fE-bu0">
                                 <rect key="frame" x="40" y="234" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBP-ss-3af">
                                 <rect key="frame" x="185" y="287" width="89" height="30"/>
                                 <state key="normal" title="Doctor Login"/>
                                 <connections>
-                                    <segue destination="c9d-Oe-1eU" kind="push" id="iie-s2-nv7"/>
+                                    <action selector="onDoctorLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mWb-nH-G2T"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qaw-6B-U4O"/>
+                    <connections>
+                        <outlet property="passwordTextField" destination="ZOe-fE-bu0" id="VIn-Kw-Ccr"/>
+                        <outlet property="usernameTextField" destination="PNU-Ci-87s" id="H4M-0O-PpC"/>
+                        <segue destination="yVs-gN-PrI" kind="push" identifier="PatientLoginSegue" id="Fz0-0f-XUi"/>
+                        <segue destination="c9d-Oe-1eU" kind="push" identifier="DoctorLoginSegue" id="oX1-74-3yR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -446,7 +452,7 @@
         <!--Home-->
         <scene sceneID="UYD-WU-8sk">
             <objects>
-                <viewController id="u1D-Gp-2hh" sceneMemberID="viewController">
+                <viewController id="u1D-Gp-2hh" customClass="PatientHomeViewController" customModule="healthmate" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GPC-R9-WnX"/>
                         <viewControllerLayoutGuide type="bottom" id="LYI-Fm-AbO"/>

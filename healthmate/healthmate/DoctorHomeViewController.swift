@@ -45,8 +45,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let patient = patients![indexPath.row]
         let name = patient["name"] as! String
-//        let severity = patient["severity"] as! String
-        let severity = "high"
+        let severity = patient["flag"] as! String
         
         cell.patientName.text = name
         cell.severity.text = severity
