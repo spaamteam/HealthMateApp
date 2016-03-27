@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
                     self.patientResponse = response! as NSDictionary
                     self.performSegueWithIdentifier("PatientLoginSegue", sender: self)
                 } else {
-                    let alert = UIAlertController(title: nil, message: "Login Failed", preferredStyle: .Alert)
+                    let alert = UIAlertController(title: "Login Failed", message: "Invalid username/password combination", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                     self.presentViewController(alert,animated: true,completion: nil)
 
@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
                 self.doctorResponse = response! as [NSDictionary]
                 self.performSegueWithIdentifier("DoctorLoginSegue", sender: self)
             } else {
-                let alert = UIAlertController(title: nil, message: "Login Failed", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Login Failed", message: "Invalid username/password combination", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
                 self.presentViewController(alert,animated: true,completion: nil)
                 

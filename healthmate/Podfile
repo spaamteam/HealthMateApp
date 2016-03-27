@@ -6,5 +6,6 @@ use_frameworks!
 target 'healthmate' do
 
 pod "BDBOAuth1Manager"
+pod "MBProgressHUD"
 
 end

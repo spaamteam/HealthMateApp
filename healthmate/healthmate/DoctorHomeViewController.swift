@@ -20,6 +20,8 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
+        print("Records loaded: \(self.patients!.count)")
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,6 +64,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         if let cell = sender as? UITableViewCell{
             let indexPath = tableView.indexPathForCell(cell)
             let patient = patients![indexPath!.row]
+            print(patient)
 
             if segue.identifier == "PatientDetailsSegue" {
                 let patientDetailsViewController = segue.destinationViewController as! PatientDetailsViewController

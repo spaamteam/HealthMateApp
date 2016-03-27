@@ -27,13 +27,6 @@ class PatientDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        RestClient.sharedInstance.fetchPatientDetails(["patient":""]) { (response, error) in
-            if response != nil {
-                self.patient = response! as NSDictionary
-            } else {
-                print(error?.localizedDescription)
-            }
-        }
         nameLabel.text = patient.valueForKeyPath("name") as? String
         criticalityLabel.text = patient.valueForKeyPath("riskflag") as? String
         lastVisitLabel.text = patient.valueForKeyPath("lastvisitdate") as? String
