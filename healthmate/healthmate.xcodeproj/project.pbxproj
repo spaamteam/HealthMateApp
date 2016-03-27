@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		AC68F9221CA76C1300310129 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9211CA76C1300310129 /* AppDelegate.swift */; };
-		AC68F9241CA76C1300310129 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9231CA76C1300310129 /* ViewController.swift */; };
 		AC68F9271CA76C1300310129 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC68F9251CA76C1300310129 /* Main.storyboard */; };
 		AC68F9291CA76C1300310129 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC68F9281CA76C1300310129 /* Assets.xcassets */; };
 		AC68F92C1CA76C1300310129 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC68F92A1CA76C1300310129 /* LaunchScreen.storyboard */; };
+		AC68F9341CA778C900310129 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9331CA778C900310129 /* LoginViewController.swift */; };
+		AC68F9361CA77DC600310129 /* DoctorHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9351CA77DC600310129 /* DoctorHomeViewController.swift */; };
+		AC68F9381CA77DD400310129 /* PatientDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9371CA77DD400310129 /* PatientDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC68F91E1CA76C1300310129 /* healthmate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = healthmate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC68F9211CA76C1300310129 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AC68F9231CA76C1300310129 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC68F9261CA76C1300310129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC68F9281CA76C1300310129 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC68F92B1CA76C1300310129 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AC68F92D1CA76C1400310129 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC68F9331CA778C900310129 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AC68F9351CA77DC600310129 /* DoctorHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoctorHomeViewController.swift; sourceTree = "<group>"; };
+		AC68F9371CA77DD400310129 /* PatientDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				AC68F9211CA76C1300310129 /* AppDelegate.swift */,
-				AC68F9231CA76C1300310129 /* ViewController.swift */,
 				AC68F9251CA76C1300310129 /* Main.storyboard */,
 				AC68F9281CA76C1300310129 /* Assets.xcassets */,
 				AC68F92A1CA76C1300310129 /* LaunchScreen.storyboard */,
 				AC68F92D1CA76C1400310129 /* Info.plist */,
+				AC68F9331CA778C900310129 /* LoginViewController.swift */,
+				AC68F9351CA77DC600310129 /* DoctorHomeViewController.swift */,
+				AC68F9371CA77DD400310129 /* PatientDetailsViewController.swift */,
 			);
 			path = healthmate;
 			sourceTree = "<group>";
@@ -136,8 +142,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC68F9241CA76C1300310129 /* ViewController.swift in Sources */,
+				AC68F9341CA778C900310129 /* LoginViewController.swift in Sources */,
 				AC68F9221CA76C1300310129 /* AppDelegate.swift in Sources */,
+				AC68F9361CA77DC600310129 /* DoctorHomeViewController.swift in Sources */,
+				AC68F9381CA77DD400310129 /* PatientDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
