@@ -19,34 +19,17 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-//        let url = NSURL(string: "http://healthmate2016.herokuapp.com/doctor_login")
-//        let request = NSURLRequest(
-//            URL: url!,
-//            cachePolicy: NSURLRequestCachePolicy.ReloadIgnoringLocalCacheData,
-//            timeoutInterval: 10)
-//        
-//        let session = NSURLSession(
-//            configuration: NSURLSessionConfiguration.defaultSessionConfiguration(),
-//            delegate: nil,
-//            delegateQueue: NSOperationQueue.mainQueue()
-//        )
-        
-//        let task: NSURLSessionDataTask = session.dataTaskWithRequest(request,
-//            completionHandler: { (dataOrNil, response, error) in
-//                if let data = dataOrNil {
-//                    if let responseDictionary = try! NSJSONSerialization.JSONObjectWithData(
-//                        data, options:[]) as? NSDictionary {
-//                        print("response: \(responseDictionary)")
-//                
-//                        self.patients = responseDictionary as? [NSDictionary]
-//                        self.tableView.reloadData()
-//                    }
-//                }
-//        })
-//        task.resume()
-        
-        //RestClient.sharedInstance.
+                
+        RestClient.sharedInstance.fetchPatientsForDoctor(["user":"saddamhussain@gmail.com", "pass": "Saddam"]) { (response, error) in
+            print(response!)
+
+            if response != nil {
+                self.patients = response! as [NSDictionary]
+                self.tableView.reloadData()
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -62,7 +45,8 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let patient = patients![indexPath.row]
         let name = patient["name"] as! String
-        let severity = patient["severity"] as! String
+//        let severity = patient["severity"] as! String
+        let severity = "high"
         
         cell.patientName.text = name
         cell.severity.text = severity

@@ -9,7 +9,7 @@
 import UIKit
 import BDBOAuth1Manager
 
-let baseRestURL = NSURL(string: "http://thecompanion.herokuapp.com")
+let baseRestURL = NSURL(string: "http://doctorehelp.herokuapp.com")
 
 class RestClient: BDBOAuth1SessionManager {
     
@@ -33,25 +33,22 @@ class RestClient: BDBOAuth1SessionManager {
             
         }
     
-    func fetchPatientsForDoctor(params: NSDictionary?, completion: (response: NSDictionary?, error: NSError?) -> ()) {
-        
-        RestClient.sharedInstance.POST("doctor_login", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
-                        
-            completion(response: response as? NSDictionary, error: nil)
-            
+    func fetchPatientsForDoctor(params: NSDictionary?, completion: (response: [NSDictionary]?, error: NSError?) -> ()) {
+        RestClient.sharedInstance.GET("doctor_login", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
+            completion(response: response!["patient_list"] as? [NSDictionary], error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
-                print("error getting current user: \(error)")
                 completion(response: nil, error: error)
         })
-        
     }
     
-//        func sendNewTweet(params: NSDictionary?, completion: (response: NSDictionary?,error: NSError?)->()) {
-//            TwitterClient.sharedInstance.POST("1.1/statuses/update.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
-//                completion(response: response as? NSDictionary, error: nil)
-//            }) { (operation: NSURLSessionDataTask?, error: NSError) -> Void in
-//                completion(response: nil, error: error)
-//            }
-//        }
+    
+    func fetchPatientDetails(params: NSDictionary?, completion: (response: NSDictionary?, error: NSError?) -> ()) {
+        RestClient.sharedInstance.GET("patient_info", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
+            completion(response: response as? NSDictionary, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
+                completion(response: nil, error: error)
+        })
+    }
+    
     
 }

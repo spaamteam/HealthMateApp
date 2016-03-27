@@ -10,10 +10,40 @@ import UIKit
 
 class PatientDetailsViewController: UIViewController {
 
+    @IBOutlet weak var criticalityLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
+    @IBOutlet weak var historyLabel: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var lastVisitLabel: UILabel!
+    @IBOutlet weak var weightLabel: UILabel!
+    @IBOutlet weak var heightLabel: UILabel!
+    
+    @IBOutlet weak var prescriptionLabel: UILabel!
+    @IBOutlet weak var symptomsLabel: UILabel!
+    
+    var patient: NSDictionary!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        RestClient.sharedInstance.fetchPatientDetails(["patient":""]) { (response, error) in
+            if response != nil {
+                self.patient = response! as NSDictionary
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        nameLabel.text = patient.valueForKeyPath("name") as? String
+        //criticalityLabel.text = patient.valueForKeyPath("severity") as? String
+        lastVisitLabel.text = patient.valueForKeyPath("lastvisitdate") as? String
+        ageLabel.text = patient.valueForKeyPath("age") as? String
+        //historyLabel.text = patient.valueForKeyPath("history") as? String
+        symptomsLabel.text = patient.valueForKeyPath("symptom") as? String
+        weightLabel.text = patient.valueForKeyPath("weight") as? String
+        heightLabel.text = patient.valueForKeyPath("height") as? String
+        //prescriptionLabel.text = patient.valueForKeyPath("prescription") as? String
+        
     }
 
     override func didReceiveMemoryWarning() {

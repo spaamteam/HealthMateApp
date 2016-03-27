@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //RestClient.sharedInstance.loginWithCompletion()
     }
 
     override func didReceiveMemoryWarning() {
