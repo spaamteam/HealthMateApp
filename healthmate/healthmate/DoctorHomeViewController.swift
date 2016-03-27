@@ -19,17 +19,7 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 
         tableView.delegate = self
         tableView.dataSource = self
-                
-        RestClient.sharedInstance.fetchPatientsForDoctor(["user":"saddamhussain@gmail.com", "pass": "Saddam"]) { (response, error) in
-            print(response!)
-
-            if response != nil {
-                self.patients = response! as [NSDictionary]
-                self.tableView.reloadData()
-            } else {
-                print(error?.localizedDescription)
-            }
-        }
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,5 +58,15 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let cell = sender as? UITableViewCell{
+            let indexPath = tableView.indexPathForCell(cell)
+            let patient = patients![indexPath!.row]
 
+            if segue.identifier == "PatientDetailsSegue" {
+                let patientDetailsViewController = segue.destinationViewController as! PatientDetailsViewController
+                patientDetailsViewController.patient = patient
+            }
+        }
+    }
 }

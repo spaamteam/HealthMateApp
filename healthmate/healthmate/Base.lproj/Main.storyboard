@@ -20,7 +20,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNU-Ci-87s">
                                 <rect key="frame" x="40" y="157" width="242" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRC-xo-C9f">
                                 <rect key="frame" x="40" y="287" width="90" height="30"/>
@@ -281,7 +281,7 @@
                                             <outlet property="flagImageView" destination="5Rf-u5-xhE" id="dYS-Lt-0VQ"/>
                                             <outlet property="patientName" destination="Tpw-Jl-BBn" id="GcC-gh-Pw7"/>
                                             <outlet property="severity" destination="pBx-2g-FKX" id="8cY-4D-ZRl"/>
-                                            <segue destination="0LG-PC-S0L" kind="push" id="rpY-5p-dQi"/>
+                                            <segue destination="0LG-PC-S0L" kind="push" identifier="PatientDetailsSegue" id="rpY-5p-dQi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

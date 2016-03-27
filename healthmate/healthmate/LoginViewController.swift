@@ -33,8 +33,8 @@ class LoginViewController: UIViewController {
             
                 if response != nil {
                     // Set NSUSerDefaults
-                    self.performSegueWithIdentifier("PatientLoginSegue", sender: self)
                     self.patientResponse = response! as NSDictionary
+                    self.performSegueWithIdentifier("PatientLoginSegue", sender: self)
                 } else {
                     let alert = UIAlertController(title: nil, message: "Login Failed", preferredStyle: .Alert)
                     alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
@@ -51,8 +51,8 @@ class LoginViewController: UIViewController {
             
             if response != nil {
                 // Set NSUSerDefaults
-                self.performSegueWithIdentifier("DoctorLoginSegue", sender: self)
                 self.doctorResponse = response! as [NSDictionary]
+                self.performSegueWithIdentifier("DoctorLoginSegue", sender: self)
             } else {
                 let alert = UIAlertController(title: nil, message: "Login Failed", preferredStyle: .Alert)
                 alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
@@ -69,10 +69,14 @@ class LoginViewController: UIViewController {
     // In a storyboard-based application, you will often want to do a little preparation before navigation */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "PatientLoginSegue" {
-            let patientHomeViewController = segue.destinationViewController as! PatientHomeViewController
+            
+            let tabBarController = segue.destinationViewController as! UITabBarController
+            let patientHomeViewController = tabBarController.viewControllers![0] as! PatientHomeViewController
             patientHomeViewController.patient = self.patientResponse
         } else if segue.identifier == "DoctorLoginSegue" {
-            let doctorHomeViewController = segue.destinationViewController as! DoctorHomeViewController
+            let tabBarController = segue.destinationViewController as! UITabBarController
+            let navController = tabBarController.viewControllers![0] as! UINavigationController
+            let doctorHomeViewController = navController.topViewController as! DoctorHomeViewController
             doctorHomeViewController.patients = self.doctorResponse
         }
     }
