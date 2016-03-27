@@ -10,12 +10,35 @@ import UIKit
 
 class PatientHomeViewController: UIViewController {
 
+    @IBOutlet weak var doctorNameLabel: UILabel!
+    @IBOutlet weak var lastVisitLabel: UILabel!
+    @IBOutlet weak var appointmentDateLabel: UILabel!
+    @IBOutlet weak var medicinesListLabel: UILabel!
+    
     var patient: NSDictionary?
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        print(patient)
+        let patientName = patient!.valueForKeyPath("username") as? String
+        doctorNameLabel.text = patient!.valueForKeyPath("doctor") as? String
+        lastVisitLabel.text = patient!.valueForKeyPath("lastvisitdate") as? String
+        if let scheduledDate = patient!.valueForKeyPath("appointment") as? String {
+            appointmentDateLabel.text = scheduledDate
+        }
+        defaults.setObject(patientName, forKey: "username")
+        
+        RestClient.sharedInstance.fetchPatientPrescription(["user":patientName!]) { (response, error) in
+            if response != nil {
+                print("Prescription data: \(response)")
+               // medicinesListLabel.text =
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

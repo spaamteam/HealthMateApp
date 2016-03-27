@@ -41,9 +41,24 @@ class RestClient: BDBOAuth1SessionManager {
         })
     }
     
+    func fetchPatient(params: NSDictionary?, completion: (response: NSDictionary?, error: NSError?) -> ()) {
+        RestClient.sharedInstance.GET("patient_login", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
+            completion(response: response as? NSDictionary, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
+                completion(response: nil, error: error)
+        })
+    }
+    
     
     func fetchPatientDetails(params: NSDictionary?, completion: (response: NSDictionary?, error: NSError?) -> ()) {
         RestClient.sharedInstance.GET("patient_info", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
+            completion(response: response as? NSDictionary, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
+                completion(response: nil, error: error)
+        })
+    }
+    func fetchPatientPrescription(params: NSDictionary?, completion: (response: NSDictionary?, error: NSError?) -> ()) {
+        RestClient.sharedInstance.GET("prescription", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
             completion(response: response as? NSDictionary, error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
                 completion(response: nil, error: error)

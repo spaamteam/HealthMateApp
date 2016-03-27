@@ -19,6 +19,11 @@
 		AC68F93C1CA7924A00310129 /* PatientsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F93B1CA7924A00310129 /* PatientsViewCell.swift */; };
 		AC68F93E1CA79A1500310129 /* RestClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F93D1CA79A1500310129 /* RestClient.swift */; };
 		AC68F9401CA8150E00310129 /* PatientHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F93F1CA8150E00310129 /* PatientHomeViewController.swift */; };
+		AC68F9441CA836DC00310129 /* MedicineViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9431CA836DC00310129 /* MedicineViewCell.swift */; };
+		AC68F9461CA8370B00310129 /* MedicinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9451CA8370B00310129 /* MedicinesViewController.swift */; };
+		AC68F9481CA8373800310129 /* SymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9471CA8373800310129 /* SymptomsViewController.swift */; };
+		AC68F94A1CA8376E00310129 /* SymptomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F9491CA8376E00310129 /* SymptomViewCell.swift */; };
+		AC68F94C1CA837A500310129 /* AppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC68F94B1CA837A500310129 /* AppointmentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +42,11 @@
 		AC68F93B1CA7924A00310129 /* PatientsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientsViewCell.swift; sourceTree = "<group>"; };
 		AC68F93D1CA79A1500310129 /* RestClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestClient.swift; sourceTree = "<group>"; };
 		AC68F93F1CA8150E00310129 /* PatientHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientHomeViewController.swift; sourceTree = "<group>"; };
+		AC68F9431CA836DC00310129 /* MedicineViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicineViewCell.swift; sourceTree = "<group>"; };
+		AC68F9451CA8370B00310129 /* MedicinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicinesViewController.swift; sourceTree = "<group>"; };
+		AC68F9471CA8373800310129 /* SymptomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomsViewController.swift; sourceTree = "<group>"; };
+		AC68F9491CA8376E00310129 /* SymptomViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SymptomViewCell.swift; sourceTree = "<group>"; };
+		AC68F94B1CA837A500310129 /* AppointmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppointmentViewController.swift; sourceTree = "<group>"; };
 		B969E7E9CF253BC9D557486B /* Pods_healthmate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_healthmate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,20 +83,41 @@
 		AC68F9201CA76C1300310129 /* healthmate */ = {
 			isa = PBXGroup;
 			children = (
+				AC68F9421CA832BE00310129 /* Cells */,
+				AC68F9411CA832AB00310129 /* View Controllers */,
 				AC68F9211CA76C1300310129 /* AppDelegate.swift */,
+				AC68F93D1CA79A1500310129 /* RestClient.swift */,
 				AC68F9251CA76C1300310129 /* Main.storyboard */,
 				AC68F9281CA76C1300310129 /* Assets.xcassets */,
 				AC68F92A1CA76C1300310129 /* LaunchScreen.storyboard */,
 				AC68F92D1CA76C1400310129 /* Info.plist */,
+			);
+			path = healthmate;
+			sourceTree = "<group>";
+		};
+		AC68F9411CA832AB00310129 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				AC68F9331CA778C900310129 /* LoginViewController.swift */,
+				AC68F93F1CA8150E00310129 /* PatientHomeViewController.swift */,
 				AC68F9351CA77DC600310129 /* DoctorHomeViewController.swift */,
 				AC68F9371CA77DD400310129 /* PatientDetailsViewController.swift */,
 				AC68F9391CA78AF500310129 /* NewPatientViewController.swift */,
-				AC68F93B1CA7924A00310129 /* PatientsViewCell.swift */,
-				AC68F93D1CA79A1500310129 /* RestClient.swift */,
-				AC68F93F1CA8150E00310129 /* PatientHomeViewController.swift */,
+				AC68F9471CA8373800310129 /* SymptomsViewController.swift */,
+				AC68F9451CA8370B00310129 /* MedicinesViewController.swift */,
+				AC68F94B1CA837A500310129 /* AppointmentViewController.swift */,
 			);
-			path = healthmate;
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		AC68F9421CA832BE00310129 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				AC68F93B1CA7924A00310129 /* PatientsViewCell.swift */,
+				AC68F9431CA836DC00310129 /* MedicineViewCell.swift */,
+				AC68F9491CA8376E00310129 /* SymptomViewCell.swift */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		B06E69C2E2EC431D801F686E /* Pods */ = {
@@ -229,10 +260,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AC68F9461CA8370B00310129 /* MedicinesViewController.swift in Sources */,
 				AC68F9341CA778C900310129 /* LoginViewController.swift in Sources */,
+				AC68F9481CA8373800310129 /* SymptomsViewController.swift in Sources */,
 				AC68F93A1CA78AF500310129 /* NewPatientViewController.swift in Sources */,
+				AC68F94A1CA8376E00310129 /* SymptomViewCell.swift in Sources */,
 				AC68F93C1CA7924A00310129 /* PatientsViewCell.swift in Sources */,
+				AC68F94C1CA837A500310129 /* AppointmentViewController.swift in Sources */,
 				AC68F9221CA76C1300310129 /* AppDelegate.swift in Sources */,
+				AC68F9441CA836DC00310129 /* MedicineViewCell.swift in Sources */,
 				AC68F9361CA77DC600310129 /* DoctorHomeViewController.swift in Sources */,
 				AC68F93E1CA79A1500310129 /* RestClient.swift in Sources */,
 				AC68F9381CA77DD400310129 /* PatientDetailsViewController.swift in Sources */,

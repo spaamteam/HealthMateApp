@@ -28,35 +28,11 @@ class NewPatientViewController: UIViewController {
 
     @IBAction func addPatient(sender: AnyObject) {
         
-//        let url:NSURL = NSURL(string: "http://thecompanion.herokuapp.com")!
-//        let session = NSURLSession.sharedSession()
-//        
-//        let request = NSMutableURLRequest(URL: url)
-//        request.HTTPMethod = "POST"
-//        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-//        
-//        
-//        let data = "DOB=09-10-2014&gender=male&height=157&name=hello&pass=hello&phone=81237129&user=hello&weight=167".dataUsingEncoding(NSUTF8StringEncoding)
-//        
-//        
-//        let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
-//            {(data,response,error) in
-//                
-//                guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
-//                    print("error")
-//                    return
-//                }
-//                
-//                let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-//                print(dataString)
-//            }
-//        )
-//        
-//        task.resume()
+
+//        let user: NSDictionary = ["user": "audi", "pass": "audi", "name": "hello", "DOB": "12-12-2014", "gender": "male", "phone": "9799857141", "height": "167", "weight": "160"]
         
-        let user: NSDictionary = ["user": "audi", "pass": "audi", "name": "hello", "DOB": "12-12-2014", "gender": "male", "phone": "9799857141", "height": "167", "weight": "160"]
+        let user: NSDictionary = ["user": "\(usernameLabel.text!)", "pass": "\(passwordLabel.text!)", "name": "\(nameLabel.text!)", "DOB": "\(DOBLabel.text!)", "gender": "\(genderLabel.text!)", "phone": "\(phoneLabel.text!)", "height": "\(heightLabel.text!)", "weight": "\(weightLabel.text!)", "doctor": "saddamhussain@gmail.com"]
         
-        //let user: NSDictionary = ["user": "\(usernameLabel.text!)", "pass": "\(passwordLabel.text!)", "name": "\(nameLabel.text!)", "DOB": "\(DOBLabel.text!)", "gender": "\(genderLabel.text!)", "phone": "\(phoneLabel.text!)", "height": "\(heightLabel.text!)", "weight": "\(weightLabel.text!)"]
         
         RestClient.sharedInstance.createNewUser(user) { (success, error) in
             if success == true {

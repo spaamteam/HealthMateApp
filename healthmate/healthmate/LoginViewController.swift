@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     var patientResponse: NSDictionary?
     var doctorResponse: [NSDictionary]?
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,8 +31,11 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onPatientLogin(sender: AnyObject) {
-        RestClient.sharedInstance.fetchPatientDetails(["user":usernameTextField.text!, "pass": passwordTextField.text!], completion: { (response, error) in
+        RestClient.sharedInstance.fetchPatient(["user":usernameTextField.text!, "pass": passwordTextField.text!], completion: { (response, error) in
             
+            self.defaults.setObject(self.usernameTextField.text!, forKey: "username")
+            self.defaults.setObject(self.passwordTextField.text!, forKey: "password")
+            print("Username: \(self.usernameTextField.text!) & password \(self.passwordTextField.text!)")
                 if response != nil {
                     // Set NSUSerDefaults
                     self.patientResponse = response! as NSDictionary

@@ -12,6 +12,8 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
 
     @IBOutlet weak var tableView: UITableView!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     var patients: [NSDictionary]?
     
     override func viewDidLoad() {
@@ -20,8 +22,32 @@ class DoctorHomeViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
+
+        
         print("Records loaded: \(self.patients!.count)")
         
+    }
+    
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        let username = defaults.objectForKey("username") as! String
+        let passKey = defaults.objectForKey("password") as! String
+        
+        RestClient.sharedInstance.fetchPatientsForDoctor(["user":username, "pass": passKey], completion: { (response, error) in
+            
+            if response != nil {
+                self.patients = response! as [NSDictionary]
+            } else {
+                print(error?.localizedDescription)
+            }
+        })
+
+        self.tableView.reloadData()
+                                                                        
+        refreshControl.endRefreshing()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
